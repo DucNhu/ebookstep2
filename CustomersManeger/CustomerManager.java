@@ -83,9 +83,21 @@ public class CustomerManager {
         ) {
             System.out.println("Enter id need delete:");
             int id = scanner.nextInt();
-            int count = statement.executeUpdate(
-                    "delete from customermanagement where CustomersID= " + id);
-            System.out.println(count + " records");
+            int count = 0;
+            while (statement.executeQuery("select orderID from orderbook where orderID = " + id).next()
+            ) {
+                count++;break;
+            }
+            System.out.println(count);
+            if (
+                    count > 0
+            ) {
+                System.out.println("Không thể xóa vì người dùng đã có tên trong bảng order");
+            } else {
+                count = statement.executeUpdate(
+                        "delete from customermanagement where CustomersID= " + id);
+                System.out.println(count + " records");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -105,8 +117,8 @@ public class CustomerManager {
             ResultSet resultSet = statement.executeQuery("select name from customermanagement limit 100");
             System.out.println("\t\t list of custormers top 100:");
             while (resultSet.next()) {
-                String BookName = resultSet.getString("title");
-                System.out.println("\t\t    " + BookName);
+                String Name = resultSet.getString("name");
+                System.out.println("\t\t    " + Name);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

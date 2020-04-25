@@ -2,6 +2,7 @@ package com.company.CustomersManeger;
 
 import GiftShop.insert.giftmodel.Gift;
 import com.company.BookManager.books;
+import org.w3c.dom.ls.LSOutput;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -60,7 +61,7 @@ public class BookController {
             int qty = scanner.nextInt();
             int count = statement.executeUpdate(
                     "update ebooks set price = " + price + ", " + "qty=" +
-                            qty +" where id=" +id);
+                            qty + " where id=" + id);
             System.out.println(count + " records");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -79,12 +80,23 @@ public class BookController {
                         "");
                 Statement statement = connection.createStatement();
         ) {
-            books books = new books(0, 0, "", "", 0);
             System.out.println("Enter id need delete:");
             int id = scanner.nextInt();
-            int count = statement.executeUpdate(
-                    "delete from ebooks where id= " + id);
-            System.out.println(count + " records");
+            int count = 0;
+            while (statement.executeQuery("select orderID from orderbook where orderID = " + id).next()
+            ) {
+                count++;break;
+            }
+            System.out.println(count);
+            if (
+                    count > 0
+            ) {
+                System.out.println("Không thể xóa vì sách đã có trong bảng order");
+            } else {
+                count = statement.executeUpdate(
+                        "delete from ebooks where id= " + id);
+                System.out.println(count + " records");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

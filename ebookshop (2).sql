@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 24, 2020 lúc 12:45 PM
+-- Thời gian đã tạo: Th4 25, 2020 lúc 04:23 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -40,7 +40,7 @@ CREATE TABLE `customermanagement` (
 --
 
 INSERT INTO `customermanagement` (`CustomersID`, `Name`, `Phone`, `Address`, `Level`) VALUES
-(1, '1', '1', '1', 1);
+(12, '12', '12', '12', 12);
 
 -- --------------------------------------------------------
 
@@ -88,10 +88,8 @@ CREATE TABLE `ebooks` (
 --
 
 INSERT INTO `ebooks` (`id`, `title`, `author`, `price`, `qty`) VALUES
-(12, 'duc', 'ui', 43, 43),
 (207, 'A Cup of Java', 'DK', 43, 34),
 (1001, 'java', 'Dang thi', 43, 34),
-(2007, 'A teaspoon of Java', 'DK', 43, 34),
 (2525, 'e', 'e', 54, 33),
 (8001, 'Java Core', 'Dang Kim Thi', 43, 34),
 (8004, 'Java Advanced', 'James Gosling', 43, 34);
@@ -163,12 +161,6 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `ebooks`
---
-ALTER TABLE `ebooks`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `orderbook`
 --
 ALTER TABLE `orderbook`
@@ -190,17 +182,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `customers`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `orderbook`
---
-ALTER TABLE `orderbook`
-  ADD CONSTRAINT `fk_1` FOREIGN KEY (`orderID`) REFERENCES `ebooks` (`id`),
-  ADD CONSTRAINT `fk_2` FOREIGN KEY (`Customer`) REFERENCES `customermanagement` (`Name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

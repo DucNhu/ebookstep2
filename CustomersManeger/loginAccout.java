@@ -43,7 +43,6 @@ public class loginAccout {
                                 "\n 3: end");
                         int numtow = scanner.nextInt();
                         switch (numtow) {
-
                             case 1:
                                 System.out.println("Quản lý sản phẩm");
                                 while (i > 0) {
@@ -58,56 +57,35 @@ public class loginAccout {
                                         case 1:
                                             System.out.println("");
                                             BookController.insert();
-                                            System.out.println("\n Enter menu:" +
-                                                    "\n 1: Add book" +
-                                                    "\n 2: Update book" +
-                                                    "\n 3: Delete book" +
-                                                    "\n 4: Select top 100 books" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 2:
                                             BookController.update();
-                                            System.out.println("\n Enter menu:" +
-                                                    "\n 1: Add book" +
-                                                    "\n 2: Update book" +
-                                                    "\n 3: Delete book" +
-                                                    "\n 4: Select top 100 books" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 3:
                                             BookController.delete();
-                                            System.out.println("\n Enter menu:" +
-                                                    "\n 1: Add book" +
-                                                    "\n 2: Update book" +
-                                                    "\n 3: Delete book" +
-                                                    "\n 4: Select top 100 books" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 4:
                                             BookController.top100Book();
-                                            System.out.println("\n Enter menu:" +
-                                                    "\n 1: Add book" +
-                                                    "\n 2: Update book" +
-                                                    "\n 3: Delete book" +
-                                                    "\n 4: Select top 100 books" +
-                                                    "\n 5: end");
                                             break;
                                         case 5:
                                             System.out.println("end");
-                                            i = -1;
+                                            i = -1; y = -1;
                                             break;
                                         default:
                                             System.out.println("Error");
                                             break;
 
                                     }
-                                }
+                                };
                                 break;
 
                             case 2:
                                 System.out.println("Quản lý khách hàng");
                                 while (i > 0) {
-                                    System.out.println("Loggin\n Enter menu:" +
+                                    System.out.println(" Enter menu:" +
                                             "\n 1: Add Custormers" +
                                             "\n 2: Update Custormers" +
                                             "\n 3: Delete Custormers" +
@@ -118,46 +96,26 @@ public class loginAccout {
                                         case 1:
                                             System.out.println("Insert");
                                             CustomerManager.insertCustorms();
-                                            System.out.println("Loggin\n Enter menu:" +
-                                                    "\n 1: Add Custormers" +
-                                                    "\n 2: Update Custormers" +
-                                                    "\n 3: Delete Custormers" +
-                                                    "\n 4: Select top 100 Custormers" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 2:
                                             System.out.println("update");
                                             CustomerManager.updateCustorms();
-                                            System.out.println("Loggin\n Enter menu:" +
-                                                    "\n 1: Add Custormers" +
-                                                    "\n 2: Update Custormers" +
-                                                    "\n 3: Delete Custormers" +
-                                                    "\n 4: Select top 100 Custormers" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 3:
                                             System.out.println("Delete");
                                             CustomerManager.deleteCustorms();
-                                            System.out.println("Loggin\n Enter menu:" +
-                                                    "\n 1: Add Custormers" +
-                                                    "\n 2: Update Custormers" +
-                                                    "\n 3: Delete Custormers" +
-                                                    "\n 4: Select top 100 Custormers" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 4:
                                             System.out.println("Top 100:\n");
                                             CustomerManager.top100Custorms();
-                                            System.out.println("Loggin\n Enter menu:" +
-                                                    "\n 1: Add Custormers" +
-                                                    "\n 2: Update Custormers" +
-                                                    "\n 3: Delete Custormers" +
-                                                    "\n 4: Select top 100 Custormers" +
-                                                    "\n 5: end");
+
                                             break;
                                         case 5:
                                             System.out.println("end");
-                                            i = -1;
+                                            i = -1; y = -1;
                                             break;
                                         default:
                                             System.out.println("Error");
